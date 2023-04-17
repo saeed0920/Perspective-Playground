@@ -1,0 +1,65 @@
+<!DOCTYPE >
+<html>
+  <head>
+    <title>CSS3 Perspective Playground</title>
+    <link rel="stylesheet" type="text/css" href="main.css" />
+  </head>
+
+  <body>
+    <div
+      id="app"
+      class="p-16 bg-white/20 backdrop-blur-sm rounded-md shadow-md w-1/2"
+    >
+      <h2 class="text-blue-600 font-mono text-3xl">
+        CSS3 Perspective Playground
+      </h2>
+      <main>
+        <section class="settings">
+          <div class="settings-container">
+            <label>perspective: {{perspective}}px;</label>
+            <input
+              v-model.number="perspective"
+              type="range"
+              min="0"
+              max="999"
+            />
+
+            <label>rotateX: {{rotateX}}deg; </label>
+            <input v-model.number="rotateX" type="range" min="-180" max="180" />
+
+            <label>rotateY: {{rotateY}}deg; </label>
+            <input v-model.number="rotateY" type="range" min="-180" max="180" />
+
+            <label>rotateZ: {{rotateZ}}deg; </label>
+            <input v-model="rotateZ" type="range" min="-180" max="180" />
+
+            <button
+              @click.prevent="rest"
+              type="button"
+              class="p-2 text-blue-700 bg-white/30 rounded-lg mr-4 transition hover:shadow-lg hover:text-blue-600 active:shadow-md"
+            >
+              Reset
+            </button>
+            <button
+              @click.prevent="copy"
+              type="button"
+              class="p-2 text-blue-700 bg-white/30 rounded-lg mr-4 transition hover:shadow-lg hover:text-blue-600 active:shadow-md"
+            >
+              Copy
+            </button>
+          </div>
+        </section>
+        <section class="output">
+          <div class="box-container">
+            <div class="box" :style="styleBox"></div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/css-doodle@0.6.1/css-doodle.min.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
